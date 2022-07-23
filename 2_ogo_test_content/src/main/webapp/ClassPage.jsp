@@ -55,5 +55,9 @@ for(ClassDTO dto: list){
 <h2>공지사항</h2>
 <hr>
 <jsp:include page="notice.jsp" flush="true"></jsp:include>
+<h2>유의사항</h2>
+<hr>
+<jsp:include page="attention.jsp" flush="true"></jsp:include>
+<br>
 </body>
 </html>
