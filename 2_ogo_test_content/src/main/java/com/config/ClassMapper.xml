@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectUserName" parameterType="string" resultType="string">
 		select username
 		from class c join login l using(userid)
-		where userid = 'user01'
+		where userid = #{userId}
 	</select>
     
 <!-- 	<select id="selectContent" parameterType="hashmap" resultType="string">
