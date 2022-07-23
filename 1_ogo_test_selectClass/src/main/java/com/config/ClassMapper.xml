@@ -8,5 +8,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from class
 		where classid=#{classId}
 	</select>
+	
+	<select id="selectUserName" parameterType="string" resultType="string">
+		select username
+		from class c join login l using(userid)
+		where userid = 'user01'
+	</select>
     
 </mapper>

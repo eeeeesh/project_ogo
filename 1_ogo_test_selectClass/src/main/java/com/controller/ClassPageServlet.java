@@ -24,8 +24,11 @@ public class ClassPageServlet extends HttpServlet {
 		String classId= "a001"; //나중에 클래스id getParameter로 받아오면 될 듯
 		ClassService service= new ClassService();
 		List<ClassDTO> list =service.select(classId);
+		String userId= "user01";
+		String userName=service.selectUserName(userId);
 		
 		request.setAttribute("list", list);
+		request.setAttribute("userName", userName);
 		
 		RequestDispatcher dis =request.getRequestDispatcher("ClassPage.jsp");
 		dis.forward(request, response);

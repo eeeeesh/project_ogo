@@ -26,4 +26,15 @@ public class ClassService {
 		return list;
 	}
 
+	public String selectUserName(String userId) {
+		SqlSession session= MySqlSessionFactory.getSession();
+		String name="";
+		try {
+			name= dao.selectUserName(session, userId);
+		} finally {
+			session.close();
+		}
+		return name;
+	}
+
 }

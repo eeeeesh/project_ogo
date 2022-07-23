@@ -5,6 +5,7 @@
     pageEncoding="UTF-8"%>
 <%
 	List<ClassDTO> list =(List<ClassDTO>)request.getAttribute("list");
+	String userName = (String)request.getAttribute("userName");
 	System.out.println(list);
 
 %>
@@ -36,11 +37,11 @@ for(ClassDTO dto: list){
 	행성 클래스 소개글입니다. 행성 클래스 소개글입니다. 행성 클래스 소개글입니다. 행성 클래스 소개글입니다. <br>
 	행성 클래스 소개글입니다. 행성 클래스 소개글입니다. 행성 클래스 소개글입니다. 행성 클래스 소개글입니다. <br>
 </p>
-<h2>튜터 <%=userId %> 소개</h2>
+<h2>튜터 <%=userName %> 소개</h2>
 <hr>
 	<div id="tutorProfileImg">
 		<img src="img/감자도리.jpg" width="100" height="100"><br>
-		<%= userId %>
+		<b><%= userName %></b>
 	</div>
 	<div id="tutorInfo" >
 		튜터 소개글입니다. 튜터 소개글입니다.튜터 소개글입니다. 튜터 소개글입니다.튜터 소개글입니다.<br>
@@ -53,7 +54,7 @@ for(ClassDTO dto: list){
 <h2>일정 및 장소 안내</h2>
 <hr>
 	<div id="classDetail">
-		-일정 : 매주 <%=schedule %><br>
+		-일정 : <%=schedule %><br>
 		-장소 : <%= place %>
 	</div>
 <% }%>

@@ -13,4 +13,9 @@ public class ClassDAO {
 		return list;
 	}
 
+	public String selectUserName(SqlSession session, String userId) {
+		String name =session.selectOne("ClassMapper.selectUserName", userId);
+		return name;
+	}
+
 }
