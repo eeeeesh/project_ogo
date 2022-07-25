@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ClassMapper">
+	<select id="select" resultType="ClassDTO" parameterType="string">
+		select *
+		from class
+		where classid=#{classId}
+	</select>
+	
+	<select id="selectUserName" parameterType="string" resultType="string">
+		select username
+		from class c join login l using(userid)
+		where userid = #{userId}
+	</select>
+    
+<!-- 	<select id="selectContent" parameterType="hashmap" resultType="string">
+    	select 
+    	<if test="con == 'con_class'">con_class</if>
+    	<if test="con == 'con_tutor'">con_tutor</if>
+    	<if test="con == 'con_attention'">con_attention</if>
+    	<if test="con == 'con_notice'">con_notice</if>
+    	from content
+    	where classid = #{classId}
+    </select> -->
+    
+<!-- 	<select id="selectContent" parameterType="string" resultType="HashMap">
+    	select con_class, con_tutor, con_attention, con_notice
+    	from content
+    	where classid = #{classId}
+    </select> -->
+    <resultMap type="HashMap" id="contentTable">
+    	<result property="CON_CLASS" column="CON_CLASS" javaType="java.lang.String"/>
+    	<result property="CON_TUTOR" column="CON_TUTOR" javaType="java.lang.String"/>
+    	<result property="CON_ATTENTION" column="CON_ATTENTION" javaType="java.lang.String"/>
+    	<result property="CON_NOTICE" column="CON_NOTICE" javaType="java.lang.String"/>
+    </resultMap>
+    <select id="selectContent" parameterType="string" resultType="HashMap" resultMap="contentTable">
+    	select con_class, con_tutor, con_attention, con_notice
+    	from content
+    	where classid = #{classId}
+    </select>
+
+    
+    <select id="selectClass" parameterType="string" resultType="string">
+    	select con_class
+    	from content
+    	where classid = #{classId}
+    </select>
+</mapper>
