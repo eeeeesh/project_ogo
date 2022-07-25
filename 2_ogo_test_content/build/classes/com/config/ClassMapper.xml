@@ -12,23 +12,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="selectUserName" parameterType="string" resultType="string">
 		select username
 		from class c join login l using(userid)
-		where userid = 'user01'
+		where userid = #{userId}
 	</select>
     
-<!-- 	<select id="selectContent" parameterType="hashmap" resultType="string">
-    	select
-    	<choose>
-    		<when test="${#{con}=='con_class'}">con_class</when>
-    		<when test="${#{con}=='con_tutor'}">con_tutor</when>
-    		<when test="${#{con}=='con_attention'}">con_attention</when>
-    		<when test="${#{con}=='con_notice'}">con_notice</when>
-    	</choose>
-    	where classid = #{classId}
-    </select>  -->
-    
-    <select id="selectClass" parameterType="string" resultType="string">
+	<select id="selectClass" parameterType="string" resultType="string">
     	select con_class
     	from content
     	where classid = #{classId}
     </select>
+    
+    <resultMap type="hashmap" id="ClassContent">
+    	<result property="con_class" column="con_class" javaType="java.lang.String"/>
+    </resultMap>
+	<select id="selectClass2" parameterType="string" resultType="HashMap">
+    	select con_class
+    	from content
+    	where classid = #{classId}
+    </select> 
 </mapper>

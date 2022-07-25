@@ -63,5 +63,16 @@ public class ClassService {
 		}
 		return con_class;
 	}
+	
+	public HashMap selectClass2(String classId) {
+		SqlSession session= MySqlSessionFactory.getSession();
+		HashMap con_class = null;
+		try {
+			con_class= dao.selectClass2(session, classId);
+		} finally {
+			session.close();
+		}
+		return con_class;
+	}
 
 }

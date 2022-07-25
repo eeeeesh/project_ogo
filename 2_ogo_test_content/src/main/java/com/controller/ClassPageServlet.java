@@ -29,17 +29,16 @@ public class ClassPageServlet extends HttpServlet {
 		String userId= "user01";
 		String userName=service.selectUserName(userId);
 		
-//		String con = "con_class";
-//		String con_class =service.selectContent(classId, con);
-//		System.out.println(con_class);
 		
 		String con_class =service.selectClass(classId);
+		HashMap con_class2 =service.selectClass2(classId); //resultMap
 		System.out.println(con_class);
 		
 		HttpSession session= request.getSession();
 		session.setAttribute("list", list);
 		session.setAttribute("userName", userName);
 		session.setAttribute("con_class", con_class);
+		session.setAttribute("con_class2", con_class2);
 		
 		RequestDispatcher dis =request.getRequestDispatcher("ClassPage.jsp");
 		dis.forward(request, response);
