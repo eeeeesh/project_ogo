@@ -36,7 +36,10 @@ public class ClassPageServlet extends HttpServlet {
 //		con.put("con_tutor", "con_tutor");
 //		con.put("con_attention", "con_attention");
 //		con.put("con_notice", "con_notice");
-		HashMap<String, Object> contents =service.selectContent(classId);
+		HashMap contents =service.selectContent(classId);
+//		for (String key : contents.keySet()) {
+//			
+//		}
 		System.out.println(contents);
 		
 		HttpSession session= request.getSession();

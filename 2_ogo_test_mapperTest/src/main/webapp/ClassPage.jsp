@@ -1,3 +1,5 @@
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="java.util.HashMap"%>
 <%@page import="org.apache.ibatis.javassist.bytecode.stackmap.TypeData.ClassName"%>
 <%@page import="com.dto.ClassDTO"%>
 <%@page import="java.util.List"%>
@@ -6,7 +8,13 @@
 <%
 	List<ClassDTO> list =(List<ClassDTO>)session.getAttribute("list");
 	String userName = (String)session.getAttribute("userName");
-	String contents = (String)session.getAttribute("contents");
+//	String contents = String.valueOf(session.getAttribute("contents"));
+	HashMap<String,String> contents = (HashMap<String,String>)session.getAttribute("contents");
+	System.out.println(contents);
+//	for(String key : contents.keySet()){
+//		System.out.println(key);
+//		System.out.println(String.valueOf(contents.get(key))); /////clob
+//	}
 	System.out.println(list);
 
 %>

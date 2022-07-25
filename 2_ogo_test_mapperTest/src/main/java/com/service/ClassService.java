@@ -38,9 +38,9 @@ public class ClassService {
 		return name;
 	}
 
-	public HashMap<String, Object> selectContent(String classId) {
+	public HashMap selectContent(String classId) {
 		
-		HashMap<String, Object> contents = null;
+		HashMap contents = null;
 		SqlSession session= MySqlSessionFactory.getSession();
 		try {
 			contents= dao.selectContent(session, classId);

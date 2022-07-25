@@ -19,8 +19,8 @@ public class ClassDAO {
 		return name;
 	}
 
-	public HashMap<String, Object> selectContent(SqlSession session, String classId) {
-		HashMap<String, Object> contents= session.selectOne("ClassMapper.selectContent", classId);
+	public HashMap selectContent(SqlSession session, String classId) {
+		HashMap contents= session.selectOne("ClassMapper.selectContent", classId);
 		return contents;
 	}
 

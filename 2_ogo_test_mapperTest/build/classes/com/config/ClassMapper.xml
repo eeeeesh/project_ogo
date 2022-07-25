@@ -25,11 +25,23 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     	where classid = #{classId}
     </select> -->
     
-	<select id="selectContent" parameterType="string" resultType="hashmap">
+<!-- 	<select id="selectContent" parameterType="string" resultType="HashMap">
+    	select con_class, con_tutor, con_attention, con_notice
+    	from content
+    	where classid = #{classId}
+    </select> -->
+    <resultMap type="HashMap" id="contentTable">
+    	<result property="CON_CLASS" column="CON_CLASS" javaType="java.lang.String"/>
+    	<result property="CON_TUTOR" column="CON_TUTOR" javaType="java.lang.String"/>
+    	<result property="CON_ATTENTION" column="CON_ATTENTION" javaType="java.lang.String"/>
+    	<result property="CON_NOTICE" column="CON_NOTICE" javaType="java.lang.String"/>
+    </resultMap>
+    <select id="selectContent" parameterType="string" resultType="HashMap" resultMap="contentTable">
     	select con_class, con_tutor, con_attention, con_notice
     	from content
     	where classid = #{classId}
     </select>
+
     
     <select id="selectClass" parameterType="string" resultType="string">
     	select con_class
