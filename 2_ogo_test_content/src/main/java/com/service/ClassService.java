@@ -16,15 +16,15 @@ public class ClassService {
 		dao= new ClassDAO();
 	}
 	
-	public List<ClassDTO> select(String classId) {
+	public ClassDTO select(String classId) {
 		SqlSession session= MySqlSessionFactory.getSession();
-		List<ClassDTO> list= null;
+		ClassDTO dto= null;
 		try {
-			list= dao.select(session, classId);
+			dto= dao.select(session, classId);
 		} finally {
 			session.close();
 		}
-		return list;
+		return dto;
 	}
 
 	public String selectUserName(String userId) {

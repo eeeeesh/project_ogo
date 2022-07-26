@@ -25,20 +25,20 @@ public class ClassPageServlet extends HttpServlet {
 		
 		String classId= "a001"; //나중에 클래스id getParameter로 받아오면 될 듯
 		ClassService service= new ClassService();
-		List<ClassDTO> list =service.select(classId);
+		
+		ClassDTO dto =service.select(classId);
 		String userId= "user01";
 		String userName=service.selectUserName(userId);
-		
+		System.out.println(dto);
 		
 		String con_class =service.selectClass(classId);
 		HashMap con_class2 =service.selectClass2(classId); //resultMap
 		System.out.println(con_class);
 		
-		HttpSession session= request.getSession();
-		session.setAttribute("list", list);
-		session.setAttribute("userName", userName);
-		session.setAttribute("con_class", con_class);
-		session.setAttribute("con_class2", con_class2);
+		request.setAttribute("dto", dto);
+		request.setAttribute("userName", userName);
+		request.setAttribute("con_class", con_class);
+		request.setAttribute("con_class2", con_class2);
 		
 		RequestDispatcher dis =request.getRequestDispatcher("ClassPage.jsp");
 		dis.forward(request, response);

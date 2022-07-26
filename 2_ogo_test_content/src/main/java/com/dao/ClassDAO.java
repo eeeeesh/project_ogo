@@ -9,9 +9,9 @@ import com.dto.ClassDTO;
 
 public class ClassDAO {
 
-	public List<ClassDTO> select(SqlSession session, String classId) {
-		List<ClassDTO> list =session.selectList("ClassMapper.select", classId);
-		return list;
+	public ClassDTO select(SqlSession session, String classId) {
+		ClassDTO dto =session.selectOne("ClassMapper.select", classId);
+		return dto;
 	}
 
 	public String selectUserName(SqlSession session, String userId) {
