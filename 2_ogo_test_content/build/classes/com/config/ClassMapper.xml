@@ -15,17 +15,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where userid = #{userId}
 	</select>
     
-	<select id="selectClass" parameterType="string" resultType="string">
+<!-- 	<select id="selectClass" parameterType="string" resultType="string">
     	select con_class
     	from content
     	where classid = #{classId}
-    </select>
+    </select> -->
     
     <resultMap type="hashmap" id="ClassContent">
     	<result property="con_class" column="con_class" jdbcType="CLOB" javaType="java.lang.String"/>
+    	<result property="con_tutor" column="con_tutor" jdbcType="CLOB" javaType="java.lang.String"/>
+    	<result property="con_attention" column="con_attention" jdbcType="CLOB" javaType="java.lang.String"/>
+    	<result property="con_notice" column="con_notice" jdbcType="CLOB" javaType="java.lang.String"/>
     </resultMap>
-	<select id="selectClass2" parameterType="string" resultType="HashMap" resultMap="ClassContent">
-    	select con_class
+	<select id="selectClass" parameterType="string" resultType="HashMap" resultMap="ClassContent">
+    	select con_class, con_tutor, con_attention, con_notice
     	from content
     	where classid = #{classId}
     </select> 

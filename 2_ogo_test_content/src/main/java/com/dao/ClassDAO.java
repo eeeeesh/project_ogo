@@ -29,7 +29,7 @@ public class ClassDAO {
 //		return con_class;
 //	}
 	public HashMap selectClass(SqlSession session, String classId) {
-		HashMap con_class = session.selectOne("ClassMapper.selectClass2", classId);
+		HashMap con_class = session.selectOne("ClassMapper.selectClass", classId);
 		return con_class;
 	}
 
