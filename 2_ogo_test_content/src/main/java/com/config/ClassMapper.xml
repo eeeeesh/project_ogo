@@ -4,7 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ClassMapper">
 	<select id="select" resultType="ClassDTO" parameterType="string">
-		select *
+		select classid, classname, userid, category, price, schedule, place
 		from class
 		where classid=#{classId}
 	</select>
@@ -22,9 +22,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </select>
     
     <resultMap type="hashmap" id="ClassContent">
-    	<result property="con_class" column="con_class" javaType="java.lang.String"/>
+    	<result property="con_class" column="con_class" jdbcType="CLOB" javaType="java.lang.String"/>
     </resultMap>
-	<select id="selectClass2" parameterType="string" resultType="HashMap">
+	<select id="selectClass2" parameterType="string" resultType="HashMap" resultMap="ClassContent">
     	select con_class
     	from content
     	where classid = #{classId}

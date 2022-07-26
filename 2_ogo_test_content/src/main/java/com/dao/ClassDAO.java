@@ -24,11 +24,11 @@ public class ClassDAO {
 		return contents;
 	}
 
-	public String selectClass(SqlSession session, String classId) {
-		String con_class = session.selectOne("ClassMapper.selectClass", classId);
-		return con_class;
-	}
-	public HashMap selectClass2(SqlSession session, String classId) {
+//	public String selectClass(SqlSession session, String classId) {
+//		String con_class = session.selectOne("ClassMapper.selectClass", classId);
+//		return con_class;
+//	}
+	public HashMap selectClass(SqlSession session, String classId) {
 		HashMap con_class = session.selectOne("ClassMapper.selectClass2", classId);
 		return con_class;
 	}

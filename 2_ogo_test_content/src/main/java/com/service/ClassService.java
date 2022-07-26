@@ -53,22 +53,22 @@ public class ClassService {
 		return contents;
 	}
 
-	public String selectClass(String classId) {
-		SqlSession session= MySqlSessionFactory.getSession();
-		String con_class = null;
-		try {
-			con_class= dao.selectClass(session, classId);
-		} finally {
-			session.close();
-		}
-		return con_class;
-	}
+//	public String selectClass(String classId) {
+//		SqlSession session= MySqlSessionFactory.getSession();
+//		String con_class = null;
+//		try {
+//			con_class= dao.selectClass(session, classId);
+//		} finally {
+//			session.close();
+//		}
+//		return con_class;
+//	}
 	
-	public HashMap selectClass2(String classId) {
+	public HashMap selectClass(String classId) {
 		SqlSession session= MySqlSessionFactory.getSession();
 		HashMap con_class = null;
 		try {
-			con_class= dao.selectClass2(session, classId);
+			con_class= dao.selectClass(session, classId);
 		} finally {
 			session.close();
 		}

@@ -27,18 +27,17 @@ public class ClassPageServlet extends HttpServlet {
 		ClassService service= new ClassService();
 		
 		ClassDTO dto =service.select(classId);
-		String userId= "user01";
+		String userId= dto.getUserId();
 		String userName=service.selectUserName(userId);
 		System.out.println(dto);
 		
-		String con_class =service.selectClass(classId);
-		HashMap con_class2 =service.selectClass2(classId); //resultMap
+		//String con_class =service.selectClass(classId);
+		HashMap con_class =service.selectClass(classId); //resultMap
 		System.out.println(con_class);
 		
 		request.setAttribute("dto", dto);
 		request.setAttribute("userName", userName);
 		request.setAttribute("con_class", con_class);
-		request.setAttribute("con_class2", con_class2);
 		
 		RequestDispatcher dis =request.getRequestDispatcher("ClassPage.jsp");
 		dis.forward(request, response);
