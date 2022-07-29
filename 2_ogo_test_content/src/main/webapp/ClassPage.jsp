@@ -28,22 +28,18 @@
 	<img src="img/a001_1.jpg" width="600px" height="400px">
 	<h1><%=className%></h1>
 </div>
-<div id="classInfo">
-	<jsp:include page="page/classInfo.jsp" flush="true"></jsp:include>
-</div>
-<div id="tutor">
-	<jsp:include page="page/tutorInfo.jsp" flush="true"></jsp:include>
-</div>
-<div id="detail">
-	<jsp:include page="page/detail.jsp" flush="true"></jsp:include>
-</div>
-	
-<div id="notice">
-	<jsp:include page="page/notice.jsp" flush="true"></jsp:include>
-</div>
-<div id="attention">
-	<jsp:include page="page/attention.jsp" flush="true"></jsp:include>
-</div>
+
+<jsp:include page="page/classInfo.jsp" flush="true"></jsp:include>
+<br>
+<jsp:include page="page/tutorInfo.jsp" flush="true"></jsp:include>
+<br>
+<jsp:include page="page/detail.jsp" flush="true"></jsp:include>
+<br>
+<jsp:include page="page/notice.jsp" flush="true"></jsp:include>
+<br>
+<jsp:include page="page/attention.jsp" flush="true"></jsp:include>
+<br>
+<!-- 수강생 후기 아래에 추가 -->
 
 <br>
 </body>
