@@ -19,7 +19,7 @@ import com.service.ClassService;
 /**
  * Servlet implementation class ClassPageServlet
  */
-@WebServlet("/ClassPageServlet")
+@WebServlet("/ClassPage")
 public class ClassPageServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -32,9 +32,8 @@ public class ClassPageServlet extends HttpServlet {
 		String userName=service.selectUserName(userId);
 		//System.out.println(dto);
 		
-		//String con_class =service.selectClass(classId);
 		HashMap classContents =service.selectContent(classId); //resultMap
-		System.out.println(classContents);
+		//System.out.println(classContents);
 		
 		request.setAttribute("dto", dto);
 		request.setAttribute("userName", userName);
