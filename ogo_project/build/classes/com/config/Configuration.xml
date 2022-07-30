@@ -23,6 +23,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	</environments>
 	<mappers>
 		<mapper resource="com/config/ClassMapper.xml" />
+		<mapper resource="com/config/ContentMapper.xml" />
 	</mappers>
 </configuration>
 

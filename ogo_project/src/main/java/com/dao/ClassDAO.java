@@ -9,8 +9,8 @@ import com.dto.ClassDTO;
 
 public class ClassDAO {
 
-	public ClassDTO select(SqlSession session, String classId) {
-		ClassDTO dto =session.selectOne("ClassMapper.select", classId);
+	public ClassDTO select(SqlSession session, int classNum) {
+		ClassDTO dto =session.selectOne("ClassMapper.select", classNum);
 		return dto;
 	}
 
@@ -24,8 +24,8 @@ public class ClassDAO {
 //		String con_class = session.selectOne("ClassMapper.selectClass", classId);
 //		return con_class;
 //	}
-	public HashMap selectContent(SqlSession session, String classId) {
-		HashMap con_class = session.selectOne("ContentMapper.selectContent", classId);
+	public HashMap selectContent(SqlSession session, int classNum) {
+		HashMap con_class = session.selectOne("ContentMapper.selectContent", classNum);
 		return con_class;
 	}
 

@@ -3,15 +3,15 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ClassMapper">
-	<select id="select" resultType="ClassDTO" parameterType="string">
-		select classid, classname, userid, category, price, schedule, place
+	<select id="select" resultType="ClassDTO" parameterType="int">
+		select classnum, classname, userid, category, price, schedule, place
 		from class
-		where classid=#{classId}
+		where classnum = #{classNum}
 	</select>
 	
 	<select id="selectUserName" parameterType="string" resultType="string">
-		select username
-		from class c join login l using(userid)
+		select nickname
+		from class join member using(userid)
 		where userid = #{userId}
 	</select>
     

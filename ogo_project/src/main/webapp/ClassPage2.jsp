@@ -23,7 +23,7 @@
 </head>
 <body>
 <%
-		String classId= dto.getClassId();
+		//String classId= dto.getClassId();
 		String className= dto.getClassName();
 		String userId= dto.getUserId();
 		String category= dto.getCategory();

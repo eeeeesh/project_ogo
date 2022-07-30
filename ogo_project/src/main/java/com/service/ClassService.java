@@ -16,11 +16,12 @@ public class ClassService {
 		dao= new ClassDAO();
 	}
 	
-	public ClassDTO select(String classId) {
+	public ClassDTO select(int classNum) {
+		
 		SqlSession session= MySqlSessionFactory.getSession();
 		ClassDTO dto= null;
 		try {
-			dto= dao.select(session, classId);
+			dto= dao.select(session, classNum);
 		} finally {
 			session.close();
 		}
@@ -49,11 +50,11 @@ public class ClassService {
 //		return con_class;
 //	}
 	
-	public HashMap selectContent(String classId) {
+	public HashMap selectContent(int classNum) {
 		SqlSession session= MySqlSessionFactory.getSession();
 		HashMap con_class = null;
 		try {
-			con_class= dao.selectContent(session, classId);
+			con_class= dao.selectContent(session, classNum);
 		} finally {
 			session.close();
 		}

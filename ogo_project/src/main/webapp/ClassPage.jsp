@@ -30,25 +30,119 @@
 		width: 25%;
 		float: right;
 	}
-	/* 오른쪽의 box */
+	/* 오른쪽의 결제 box */
 	.box {
 		background-color: white;
 		width: 200px;
-		height: 250px;
+		height: 150px;
 		padding: 20px; 
-		border: 5px solid purple;
+		border: 8px solid #6633FF;
+		border-radius: 20px 20px 20px 20px;
 		margin: 15px;
-}
+		position : relative
+	}
+	#price{
+		font-size: 36px;
+		text-align: right;
+		position: absolute;
+		top: 15%;
+		right: -15%;
+		transform: translate(-50%, -30%);
+	}
 	/* 수강결제 버튼 */
 	#btn{ 
-		background-color: #9933FF; 
+		background-color: #6633FF; 
 		color: white; 
-		font-size: 30px; 
-		width: 150px;
-		
+		font-size: 24px; 
+		font-weight: bold;
+		width: 70%;
+		height: 25%;
+		text-align: center;
+		cursor : pointer;
+		position: absolute;
+		top: 25%;
+		left: 50%;
+		transform: translate(-50%, 60%);
+	}
+	/* 찜 버튼 */
+	#like{
+		cursor : pointer;
+		position: absolute;
+		bottom: 8%;
+		left: 20%;
+	}
+	/* photo container */
+	.container{ 
+		display: flex;
+	}
+	/* photo 버튼 */
+	.btn{
+		height: 200px;
+		cursor : pointer;
+		widows: 50px;
+	}
+	.btn2{
+		transform: translate(0, 150%);
+	}
+	.photo{
+		margin: 5px;
+	}
+	.photoSize{
+		width: 300px; 
+		height: 200px;
 	}
 	
+	
 </style>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		//찜 버튼 클릭
+		$("#like").on("click", function() {
+			var heart =$("#heart");
+			if (heart.attr("src")=="img/heart1.png") {
+				heart.attr("src","img/heart2.png");
+			} else {
+				heart.attr("src","img/heart1.png");
+			}
+		});//like click
+		
+		//클래스 photo 왼쪽 버튼 클릭
+		//나중에 클래스별로 img 파일명 저장해서 받아오기
+		var images = ["a_06.jpg","a_10.jpg","a_12.jpg","a_01.jpg"];
+		var idx = 0;
+		$("#leftBtn").on("click", function() {
+			idx--;
+			if (idx < 0) {
+				idx = 3;
+			}
+			if (idx == 3) {
+				$("#photo1").attr("src", "img/"+images[idx]);
+				$("#photo2").attr("src", "img/"+images[0]);
+			}else {
+				$("#photo1").attr("src", "img/"+images[idx]);
+				$("#photo2").attr("src", "img/"+images[idx+1]);
+			}
+			
+		});
+		//클래스 photo 오른쪽 버튼 클릭
+		$("#rightBtn").on("click", function() {
+			idx++;
+			if (idx > 3) {
+				idx = 0;
+			}
+			if (idx == 3) {
+				$("#photo1").attr("src", "img/"+images[idx]);
+				$("#photo2").attr("src", "img/"+images[0]);
+			}else {
+				$("#photo1").attr("src", "img/"+images[idx]);
+				$("#photo2").attr("src", "img/"+images[idx+1]);
+			}
+			
+		});
+		
+	});//ready
+</script>
 </head>
 <body>
 <div id="wrap">

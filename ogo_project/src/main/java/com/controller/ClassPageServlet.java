@@ -24,19 +24,20 @@ public class ClassPageServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String classId= "a001"; //나중에 클래스id 받아오기
+		int classNum= 2; //나중에 클래스id 받아오기
+		
 		ClassService service= new ClassService();
+		ClassDTO dto= service.select(classNum);
+		//System.out.println(dto);//dto 확인
 		
-		ClassDTO dto =service.select(classId);
 		String userId= dto.getUserId();
-		String userName=service.selectUserName(userId);
-		//System.out.println(dto);
+		String nickName=service.selectUserName(userId);
 		
-		HashMap classContents =service.selectContent(classId); //resultMap
+		HashMap classContents =service.selectContent(classNum); //resultMap
 		//System.out.println(classContents);
 		
 		request.setAttribute("dto", dto);
-		request.setAttribute("userName", userName);
+		request.setAttribute("nickName", nickName);
 		request.setAttribute("classContents", classContents);
 		
 		RequestDispatcher dis =request.getRequestDispatcher("ClassPage.jsp");
