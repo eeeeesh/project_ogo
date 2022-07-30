@@ -1,5 +1,6 @@
 package com.service;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -15,15 +16,15 @@ public class ClassService {
 		dao= new ClassDAO();
 	}
 	
-	public List<ClassDTO> select(String classId) {
+	public ClassDTO select(String classId) {
 		SqlSession session= MySqlSessionFactory.getSession();
-		List<ClassDTO> list= null;
+		ClassDTO dto= null;
 		try {
-			list= dao.select(session, classId);
+			dto= dao.select(session, classId);
 		} finally {
 			session.close();
 		}
-		return list;
+		return dto;
 	}
 
 	public String selectUserName(String userId) {
@@ -35,6 +36,28 @@ public class ClassService {
 			session.close();
 		}
 		return name;
+	}
+
+//	public String selectClass(String classId) {
+//		SqlSession session= MySqlSessionFactory.getSession();
+//		String con_class = null;
+//		try {
+//			con_class= dao.selectClass(session, classId);
+//		} finally {
+//			session.close();
+//		}
+//		return con_class;
+//	}
+	
+	public HashMap selectContent(String classId) {
+		SqlSession session= MySqlSessionFactory.getSession();
+		HashMap con_class = null;
+		try {
+			con_class= dao.selectContent(session, classId);
+		} finally {
+			session.close();
+		}
+		return con_class;
 	}
 
 }
