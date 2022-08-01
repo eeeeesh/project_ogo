@@ -18,15 +18,17 @@ public class ClassDAO {
 		String name =session.selectOne("ClassMapper.selectUserName", userId);
 		return name;
 	}
+	
+	public HashMap selectContent(SqlSession session, int classNum) {
+		HashMap con_class = session.selectOne("ContentMapper.selectContent", classNum);
+		return con_class;
+	}
+
 
 
 //	public String selectClass(SqlSession session, String classId) {
 //		String con_class = session.selectOne("ClassMapper.selectClass", classId);
 //		return con_class;
 //	}
-	public HashMap selectContent(SqlSession session, int classNum) {
-		HashMap con_class = session.selectOne("ContentMapper.selectContent", classNum);
-		return con_class;
-	}
 
 }

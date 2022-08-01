@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 
 import com.dto.ClassDTO;
 import com.service.ClassService;
+import com.service.HeartService;
 
 /**
  * Servlet implementation class ClassPageServlet
@@ -24,17 +25,22 @@ public class ClassPageServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		int classNum= 2; //나중에 클래스id 받아오기
+		int classNum= 2; //나중에 클래스Num 받아오기
 		
 		ClassService service= new ClassService();
+		//클래스 정보
 		ClassDTO dto= service.select(classNum);
-		//System.out.println(dto);//dto 확인
+			//System.out.println(dto);//dto 확인
 		
 		String userId= dto.getUserId();
-		String nickName=service.selectUserName(userId);
+			//System.out.println(userId);//id확인
 		
-		HashMap classContents =service.selectContent(classNum); //resultMap
-		//System.out.println(classContents);
+		//튜터 닉네임
+		String nickName=service.selectUserName(userId);
+		//클래스소개,튜터소개,일정장소,유의사항,공지사항-resultMap
+		HashMap classContents =service.selectContent(classNum); 
+			//System.out.println(classContents);
+		
 		
 		request.setAttribute("dto", dto);
 		request.setAttribute("nickName", nickName);

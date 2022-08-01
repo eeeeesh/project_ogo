@@ -4,7 +4,8 @@
 <%@page import="java.util.HashMap"%>
 <!DOCTYPE html>
 <%
-	HashMap<String,String> classContents = (HashMap<String,String>)request.getAttribute("classContents");
+	HashMap<String,String> classContents 
+		= (HashMap<String,String>)request.getAttribute("classContents");
 	String attention=classContents.get("con_attention");
 	attention=attention.replaceAll("(\r\n|\r|\n|\n\r)", "<br>");//개행 작업
 %>
