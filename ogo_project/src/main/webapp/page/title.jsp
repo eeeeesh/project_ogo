@@ -3,16 +3,7 @@
 <%@page import="com.dto.ClassDTO"%>
 <%
 	ClassDTO dto = (ClassDTO)request.getAttribute("dto");
-	//System.out.println(dto);
-	
-	int classNum= dto.getClassNum();
 	String className= dto.getClassName();
-	String userId= dto.getUserId();
-	String category= dto.getCategory();
-	int price= dto.getPrice();
-	String schedule= dto.getSchedule();
-	String place= dto.getPlace();
-
 %>   
  
 <div class="imgAll">

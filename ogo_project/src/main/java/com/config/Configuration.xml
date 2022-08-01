@@ -24,6 +24,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="com/config/ClassMapper.xml" />
 		<mapper resource="com/config/ContentMapper.xml" />
+		<mapper resource="com/config/HeartMapper.xml" />
 	</mappers>
 </configuration>
 

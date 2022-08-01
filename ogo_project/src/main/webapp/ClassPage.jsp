@@ -19,7 +19,6 @@
 	.tutor{
 		margin-top: 15px;
 	}
-	
 	#left{
 		height: 100%;
 		width: 75%;
@@ -41,11 +40,12 @@
 		margin: 15px;
 		position : relative
 	}
+	/* box.jsp의 price */
 	#price{
-		font-size: 36px;
+		font-size: 32px;
 		text-align: right;
 		position: absolute;
-		top: 15%;
+		top: 20%;
 		right: -15%;
 		transform: translate(-50%, -30%);
 	}
@@ -81,12 +81,14 @@
 		cursor : pointer;
 		widows: 50px;
 	}
+	/* photo 왼쪽 오른쪽 버튼 이미지 */
 	.btn2{
 		transform: translate(0, 150%);
 	}
 	.photo{
 		margin: 5px;
 	}
+	/* class photo의 이미지 */
 	.photoSize{
 		width: 300px; 
 		height: 200px;
@@ -107,8 +109,8 @@
 			}
 		});//like click
 		
-		//클래스 photo 왼쪽 버튼 클릭
 		//나중에 클래스별로 img 파일명 저장해서 받아오기
+		//클래스 photo 왼쪽 버튼 클릭
 		var images = ["a_06.jpg","a_10.jpg","a_12.jpg","a_01.jpg"];
 		var idx = 0;
 		$("#leftBtn").on("click", function() {
@@ -165,6 +167,7 @@
 	<br>
 	<!-- 클래스 포토 -->
 	<jsp:include page="page/classPhoto.jsp" flush="true"></jsp:include>
+	<br>
 	<!-- 공지사항 -->
 	<jsp:include page="page/notice.jsp" flush="true"></jsp:include>
 	<br>

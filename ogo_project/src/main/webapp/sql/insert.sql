@@ -14,7 +14,7 @@ insert into class values
 (CLASS_SEQ.nextval,'비엠비셔스 씬에게 배우는 8월 왁킹스타일의 코레오수업',
 'id4','dance',
 35000,'22/08/20(수)20:00~21:00','서울특별시 동작구 남부순환로 2067 6층');
-
+COMMIT;
 
 --content 테이블 insert
 set DEFIN off;
@@ -269,3 +269,12 @@ insert into content values
 * 탈잉 시스템 상 수업시간은 1시간으로 등록되어 있으며, 실제 수업시간은 1시간 30분으로 이에 해당하는 금액으로 측정된 바 알려드립니다!
 
 *왁킹 코레오반은 3회분 수업으로, 왁킹코레오가 메인이며 마지막 날 하루만 특별하게 힐코레오x왁킹 으로 진행되는 수업입니다! (원데이 가능)(매 주 다른 안무)'); --공지사항
+COMMIT;
+
+--heart 테이블
+INSERT INTO heart(classnum,userid,num) 
+VALUES (2, 'id1', HEART_SEQ.nextval);
+INSERT INTO heart(classnum,userid,num) 
+VALUES (4, 'id1', HEART_SEQ.nextval);
+
+COMMIT;
